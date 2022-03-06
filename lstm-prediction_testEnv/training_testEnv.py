@@ -127,6 +127,9 @@ class Trainer:
         end = wtp_dt.subtract(days=1).strftime("%Y-%m-%d")
         
         # df = get_history_apca(self.symbol, start=start, end=end)
+        df = df.loc[start:end]
+        # print(start, end)
+        # print(df)
 
         # self._rename_cols(df)
         # self._create_helper_col(df)
