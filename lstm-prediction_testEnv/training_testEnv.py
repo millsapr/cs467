@@ -122,9 +122,12 @@ class Trainer:
             raise Exception("Model has not been trained yet")
 
         wtp_dt = pendulum.parse(week_to_predict, tz="America/New_York")
+        print(wtp_dt)
 
-        start = wtp_dt.subtract(weeks=56).strftime("%Y-%m-%d")
-        end = wtp_dt.subtract(days=1).strftime("%Y-%m-%d")
+        # start = wtp_dt.subtract(weeks=56).strftime("%Y-%m-%d")
+        # end = wtp_dt.subtract(days=1).strftime("%Y-%m-%d")
+        start = wtp_dt.subtract(weeks=56).strftime("%G-W%V")
+        end = wtp_dt.subtract(days=1).strftime("%G-W%V")
         
         # df = get_history_apca(self.symbol, start=start, end=end)
         df = df.loc[start:end]
